@@ -166,12 +166,6 @@ export function ResourcePanel({
                   </p>
                 </div>
               )}
-
-              <div className="p-3 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                <p className="text-xs text-purple-200 leading-relaxed">
-                  💡 La imagen de diseño ayudará a los agentes a entender la estructura visual del componente
-                </p>
-              </div>
             </TabsContent>
 
             {/* CSS Tab */}
@@ -187,7 +181,6 @@ export function ResourcePanel({
                   />
                   <Button
                     onClick={handleCSSPaste}
-                    disabled={!cssInput.trim()}
                     className="w-full glass-effect-light border-white/20 hover:bg-white/10"
                     variant="outline"
                   >
@@ -234,7 +227,7 @@ export function ResourcePanel({
         <div className="p-4 border-t border-white/10 glass-effect">
           <Button
             onClick={onGenerate}
-            disabled={!canGenerate || isGenerating}
+            disabled={isGenerating}
             className="w-full h-12 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isGenerating ? (
@@ -249,11 +242,6 @@ export function ResourcePanel({
               </>
             )}
           </Button>
-          {!canGenerate && (
-            <p className="text-xs text-center text-gray-500 mt-2">
-              Conversa con el orquestador y acepta el resumen para habilitar
-            </p>
-          )}
         </div>
       )}
     </div>
