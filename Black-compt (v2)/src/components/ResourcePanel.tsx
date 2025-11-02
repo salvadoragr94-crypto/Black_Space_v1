@@ -29,7 +29,7 @@ export function ResourcePanel({
   onClearCSS,
   onClose,
   onGenerate,
-  canGenerate = false,
+  canGenerate = true,
   isGenerating = false,
 }: ResourcePanelProps) {
   const [cssInput, setCSSInput] = useState(currentCSS || '');
@@ -183,7 +183,7 @@ export function ResourcePanel({
                     value={cssInput}
                     onChange={(e) => setCSSInput(e.target.value)}
                     placeholder="Pega tu código CSS aquí..."
-                    className="min-h-[200px] font-mono text-xs glass-effect-light border-white/10 resize-none"
+                    className="h-[150px] font-mono text-xs glass-effect-light border-white/10 resize-none"
                   />
                   <Button
                     onClick={handleCSSPaste}
@@ -241,7 +241,7 @@ export function ResourcePanel({
                     </div>
                     <ScrollArea className="h-[150px] rounded-lg glass-effect-light border border-white/10 p-3">
                       <pre className="text-xs text-gray-300 font-mono">
-                        {currentCSS}
+                        {/* CSS preview removed */}
                       </pre>
                     </ScrollArea>
                   </div>
