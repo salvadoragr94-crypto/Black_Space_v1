@@ -183,7 +183,7 @@ export function ResourcePanel({
                     value={cssInput}
                     onChange={(e) => setCSSInput(e.target.value)}
                     placeholder="Pega tu código CSS aquí..."
-                    className="h-[200px] font-mono text-xs glass-effect-light border-white/10 resize-none"
+                    className="h-[150px] font-mono text-xs glass-effect-light border-white/10 resize-none"
                   />
                   <Button
                     onClick={handleCSSPaste}
