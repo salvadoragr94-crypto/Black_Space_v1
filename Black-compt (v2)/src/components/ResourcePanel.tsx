@@ -223,35 +223,6 @@ export function ResourcePanel({
                   </div>
                 </div>
 
-                {currentCSS && (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <Badge variant="outline" className="bg-green-500/10 border-green-500/30">
-                        CSS cargado
-                      </Badge>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={onClearCSS}
-                        className="h-7 text-red-400 hover:bg-red-500/10"
-                      >
-                        <X className="h-3 w-3 mr-1" />
-                        Limpiar
-                      </Button>
-                    </div>
-                    <ScrollArea className="h-[150px] rounded-lg glass-effect-light border border-white/10 p-3">
-                      <pre className="text-xs text-gray-300 font-mono">
-                        {/* CSS preview removed */}
-                      </pre>
-                    </ScrollArea>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                <p className="text-xs text-blue-200 leading-relaxed">
-                  💡 El CSS proporcionado servirá como referencia para los estilos inline del componente
-                </p>
               </div>
             </TabsContent>
           </Tabs>
