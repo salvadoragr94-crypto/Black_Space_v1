@@ -29,7 +29,7 @@ export function ResourcePanel({
   onClearCSS,
   onClose,
   onGenerate,
-  canGenerate = false,
+  canGenerate = true,
   isGenerating = false,
 }: ResourcePanelProps) {
   const [cssInput, setCSSInput] = useState(currentCSS || '');
@@ -166,12 +166,6 @@ export function ResourcePanel({
                   </p>
                 </div>
               )}
-
-              <div className="p-3 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                <p className="text-xs text-purple-200 leading-relaxed">
-                  💡 La imagen de diseño ayudará a los agentes a entender la estructura visual del componente
-                </p>
-              </div>
             </TabsContent>
 
             {/* CSS Tab */}
@@ -183,11 +177,10 @@ export function ResourcePanel({
                     value={cssInput}
                     onChange={(e) => setCSSInput(e.target.value)}
                     placeholder="Pega tu código CSS aquí..."
-                    className="min-h-[200px] font-mono text-xs glass-effect-light border-white/10 resize-none"
+                    className="h-[200px] font-mono text-xs glass-effect-light border-white/10 resize-none"
                   />
                   <Button
                     onClick={handleCSSPaste}
-                    disabled={!cssInput.trim()}
                     className="w-full glass-effect-light border-white/20 hover:bg-white/10"
                     variant="outline"
                   >
@@ -223,35 +216,6 @@ export function ResourcePanel({
                   </div>
                 </div>
 
-                {currentCSS && (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <Badge variant="outline" className="bg-green-500/10 border-green-500/30">
-                        CSS cargado
-                      </Badge>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={onClearCSS}
-                        className="h-7 text-red-400 hover:bg-red-500/10"
-                      >
-                        <X className="h-3 w-3 mr-1" />
-                        Limpiar
-                      </Button>
-                    </div>
-                    <ScrollArea className="h-[150px] rounded-lg glass-effect-light border border-white/10 p-3">
-                      <pre className="text-xs text-gray-300 font-mono">
-                        {currentCSS}
-                      </pre>
-                    </ScrollArea>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                <p className="text-xs text-blue-200 leading-relaxed">
-                  💡 El CSS proporcionado servirá como referencia para los estilos inline del componente
-                </p>
               </div>
             </TabsContent>
           </Tabs>
@@ -263,7 +227,7 @@ export function ResourcePanel({
         <div className="p-4 border-t border-white/10 glass-effect">
           <Button
             onClick={onGenerate}
-            disabled={!canGenerate || isGenerating}
+            disabled={isGenerating}
             className="w-full h-12 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isGenerating ? (
@@ -278,11 +242,6 @@ export function ResourcePanel({
               </>
             )}
           </Button>
-          {!canGenerate && (
-            <p className="text-xs text-center text-gray-500 mt-2">
-              Conversa con el orquestador y acepta el resumen para habilitar
-            </p>
-          )}
         </div>
       )}
     </div>
